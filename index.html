@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワード保護されたNote</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="password-screen" id="passwordScreen">
+            <div class="content">
+                <div class="icon">
+                    <img src="ChatGPT Image 2025年7月21日 02_30_57.png" alt="メイン画像" class="main-image">
+                </div>
+                <h1>４つのクイズの答えを合わせてここに4桁を入力してね🌸</h1>
+                <p>正しい4桁の数字を入力すると次のステージに行けるよ！</p>
+                <p class="password-hint">パスワードは半角・全角どちらでも入力可能です</p>
+                
+                <form id="passwordForm" class="password-form">
+                    <div class="input-group">
+                        <input type="password" id="passwordInput" placeholder="パスワードを入力してください" required>
+                        <button type="submit" class="submit-btn">
+                            <span>ロックを解除</span>
+                            <div class="loading-spinner" id="loadingSpinner"></div>
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+        </div>
+        
+        <div class="note-content" id="noteContent" style="display: none;">
+            <div class="note-header">
+                <h1>📝 共有Note</h1>
+                <button class="lock-btn" id="lockBtn" onclick="lockNote()">
+                    🔒 ロック
+                </button>
+            </div>
+            
+            <div class="note-body">
+                <div class="note-text">
+                    <h2>ようこそ！</h2>
+                    <p>このnoteはパスワード保護されています。正しいパスワードを入力することで、このコンテンツにアクセスできます。</p>
+                    
+                    <h3>このページの特徴：</h3>
+                    <ul>
+                        <li>🔐 セキュアなパスワード保護</li>
+                        <li>📱 レスポンシブデザイン</li>
+                        <li>⚡ 高速な読み込み</li>
+                        <li>🎨 美しいUI/UX</li>
+                    </ul>
+                    
+                    <h3>使用方法：</h3>
+                    <p>パスワードを入力して「ロックを解除」ボタンをクリックすると、このコンテンツが表示されます。</p>
+                    
+                    <div class="demo-note">
+                        <h4>📋 サンプルコンテンツ</h4>
+                        <p>ここに実際のnoteの内容を配置できます。テキスト、画像、リンクなど、様々なコンテンツを含めることができます。</p>
+                        <p>パスワード保護により、許可されたユーザーのみがコンテンツにアクセスできます。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 

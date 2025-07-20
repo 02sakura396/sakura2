@@ -1,0 +1,586 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 25%, #ff91a4 50%, #ffb6c1 75%, #ffc0cb 100%);
+    background-size: 400% 400%;
+    animation: sakuraGradient 8s ease-in-out infinite;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+/* さくらグラデーションアニメーション */
+@keyframes sakuraGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* さくらの花びらアニメーション */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(3px 3px at 20px 30px, #ff91a4, transparent),
+        radial-gradient(2px 2px at 40px 70px, #ffb6c1, transparent),
+        radial-gradient(2px 2px at 90px 40px, #ff91a4, transparent),
+        radial-gradient(3px 3px at 130px 80px, #ffb6c1, transparent),
+        radial-gradient(2px 2px at 160px 30px, #ff91a4, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sakuraPetals 20s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes sakuraPetals {
+    0% { transform: translateY(-100vh) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* パスワード画面のスタイル */
+.password-screen {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 40px 60px 40px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3);
+    border: 2px solid rgba(255, 182, 193, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* パスワード画面の装飾 */
+.password-screen::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0deg,
+        rgba(255, 182, 193, 0.1) 10deg,
+        transparent 20deg
+    );
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.content {
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* 装飾（女の子の絵文字を削除） */
+.content::before {
+    content: '';
+}
+
+.content::after {
+    content: '🌸✨';
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    font-size: 1.5rem;
+    animation: bounce 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.icon {
+    margin-bottom: 30px;
+    animation: sakuraFloat 3s ease-in-out infinite;
+    position: relative;
+    width: 100%;
+    margin-top: -20px;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.5);
+    animation: imageGlow 2s ease-in-out infinite alternate;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+
+@keyframes imageGlow {
+    0% { box-shadow: 0 12px 30px rgba(255, 105, 180, 0.5); }
+    100% { box-shadow: 0 16px 40px rgba(255, 105, 180, 0.8); }
+}
+
+.icon::before {
+    content: '🌸';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    animation: sparkle 2s ease-in-out infinite;
+    z-index: 10;
+}
+
+.icon::after {
+    content: '✨';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1rem;
+    animation: sparkle 2s ease-in-out infinite 1s;
+    z-index: 10;
+}
+
+@keyframes sakuraFloat {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.05) rotate(2deg); }
+    50% { transform: scale(1.1) rotate(0deg); }
+    75% { transform: scale(1.05) rotate(-2deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.5; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-weight: 700;
+    font-family: 'Comic Sans MS', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', sans-serif;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    animation: textGlow 2s ease-in-out infinite alternate;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); }
+    100% { text-shadow: 2px 2px 8px rgba(255, 255, 255, 1); }
+}
+
+.password-screen p {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-family: 'Comic Sans MS', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', sans-serif;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.3px;
+}
+
+.password-hint {
+    color: #5a6c7d !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 30px !important;
+    font-style: italic;
+    font-family: 'Comic Sans MS', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', sans-serif !important;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6) !important;
+    letter-spacing: 0.2px !important;
+}
+
+.password-form {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#passwordInput {
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+#passwordInput:focus {
+    outline: none;
+    border-color: #ff69b4;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+}
+
+.submit-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #dc143c 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+.submit-btn::before {
+    content: '🌸';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    animation: buttonSparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes buttonSparkle {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.6);
+    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 50%, #ff69b4 100%);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn.loading {
+    pointer-events: none;
+}
+
+.submit-btn.loading span {
+    opacity: 0;
+}
+
+.loading-spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.submit-btn.loading .loading-spinner {
+    display: block;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    min-height: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.error-message.show {
+    opacity: 1;
+}
+
+/* Noteコンテンツのスタイル */
+.note-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.note-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-header h1 {
+    color: white;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.lock-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.lock-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.note-body {
+    padding: 40px;
+}
+
+.note-text h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.note-text h3 {
+    color: #34495e;
+    margin: 25px 0 15px 0;
+    font-size: 1.3rem;
+}
+
+.note-text h4 {
+    color: #34495e;
+    margin: 20px 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.note-text p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.note-text ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.note-text li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.demo-note {
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.demo-note h4 {
+    margin-top: 0;
+    color: #667eea;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .password-screen {
+        padding: 30px 25px 50px 25px;
+    }
+    
+    .main-image {
+        max-width: 100%;
+    }
+    
+    .note-header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .note-body {
+        padding: 25px;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    .note-header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .password-screen {
+        padding: 25px 20px 45px 20px;
+    }
+    
+    .main-image {
+        max-width: 100%;
+    }
+    
+    h1 {
+        font-size: 1.2rem;
+    }
+    
+    .password-screen p {
+        font-size: 1rem;
+    }
+    
+    .note-body {
+        padding: 20px;
+    }
+    
+    .input-group {
+        gap: 12px;
+    }
+    
+    #passwordInput {
+        padding: 12px 15px;
+    }
+    
+    .submit-btn {
+        padding: 12px 25px;
+    }
+} 
+
+/* 追加のさくらアニメーション */
+.password-screen .content {
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+/* さくらの花びらのパーティクル効果 */
+.password-screen::after {
+    content: '🌸 ✨ 🌸 ✨ 🌸';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    opacity: 0.3;
+    animation: floatingPetals 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes floatingPetals {
+    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+    25% { transform: translateY(-10px) rotate(90deg); opacity: 0.5; }
+    50% { transform: translateY(-5px) rotate(180deg); opacity: 0.7; }
+    75% { transform: translateY(-15px) rotate(270deg); opacity: 0.4; }
+}
+
+/* ホバー効果でより多くのさくらを表示 */
+.password-screen:hover::after {
+    animation-duration: 3s;
+    opacity: 0.6;
+}
+
+/* パスワード入力時のキラキラ効果 */
+#passwordInput:focus::placeholder {
+    color: #ff69b4;
+}
+
+/* 成功時のお祝いアニメーション */
+.success-celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.success-celebration::before {
+    content: 'ステージクリア🎉';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff1493;
+    text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.8);
+    animation: celebrate 2s ease-out;
+}
+
+@keyframes celebrate {
+    0% { 
+        opacity: 0; 
+        transform: translate(-50%, -50%) scale(0.3) rotate(-10deg); 
+    }
+    30% { 
+        opacity: 1; 
+        transform: translate(-50%, -50%) scale(1.3) rotate(5deg); 
+    }
+    70% { 
+        opacity: 1; 
+        transform: translate(-50%, -50%) scale(1.1) rotate(-2deg); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translate(-50%, -50%) scale(0.8) rotate(0deg); 
+    }
+} 
