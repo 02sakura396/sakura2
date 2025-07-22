@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>秘密のページ🌸</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🌸 パスワードを入力してね 🌸</h2>
+  <input type="password" id="password" placeholder="パスワード">
+  <button onclick="checkPassword()">送信</button>
+  <div class="error" id="error"></div>
+
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById("password").value;
+      const correct = "1234"; //←ここに正しいパスワードを設定
+      const noteUrl = "https://note.com/あなたのURL"; //←ここにnoteの共有リンク
+
+      if (pass === correct) {
+        window.location.href = noteUrl;
+      } else {
+        document.getElementById("error").innerText = "パスワードが違うよ🥺";
+      }
+    }
+  </script>
+</body>
+</html>
