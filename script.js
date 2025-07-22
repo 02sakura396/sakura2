@@ -1,6 +1,6 @@
 // パスワード設定（実際の使用時は変更してください）
-const CORRECT_PASSWORD = '2142';
-const TARGET_URL = 'https://note.com/preview/n4281509cae94?prev_access_key=980226065ccc78ba978166fcffc64627';
+const CORRECT_PASSWORD = '2341';
+const TARGET_URL = 'https://note.com/preview/n34504cc0ce88?prev_access_key=4e81057c6c8606f1f60054e25b3affeb';
 
 // DOM要素の取得
 const passwordScreen = document.getElementById('passwordScreen');
